@@ -3,8 +3,7 @@ import ClassCounter from "./components/ClassCounter";
 import Counter from "./components/Counter";
 import PostList from "./components/PostList";
 import "./styles/App.css";
-import MyButton from "./components/UI/button/MyButton";
-import MyInput from "./components/UI/input/MyInput";
+import PostForm from "./components/PostForm";
 
 function App() {
   const [value, setValue] = useState("текст в инпуте");
@@ -24,20 +23,14 @@ function App() {
     { id: 3, postTitle: "Python 3", postBody: "Description" },
   ]);
 
-  const [post, setPost] = useState({ postTitle: "", postBody: "" });
-  // const [postBody, setPostBody] = useState("");
-
-  const addNewPost = () => {
-    // const newPost = {
-    //   id:
-    //   postTitle,
-    //   postBody,
-    // };
-    setPosts([...posts, { ...post, id: Date.now() }]);
-    setPost({ postTitle: "", postBody: "" });
-    // setPostBody("");
-    // setPostTitle("");
+  const createPost = (newPost) => {
+    setPosts([...posts, newPost]);
   };
+
+  const removePost = (post) => {
+    setPosts(posts.filter((p) => p.id !== post.id));
+  };
+
   return (
     <div className="App">
       <h1>{value}</h1>
@@ -45,38 +38,8 @@ function App() {
       <Counter />
       <Counter />
       <ClassCounter />
-      <form>
-        <MyInput
-          type="text"
-          placeholder="название поста"
-          title="Enter your search here"
-          name="input1"
-          value={post.postTitle}
-          onChange={(e) => {
-            setPost({ ...post, postTitle: e.target.value });
-          }}
-        />
-        <MyInput
-          type="text"
-          placeholder="текст поста"
-          title="Enter your search here"
-          name="input2"
-          value={post.postBody}
-          onChange={(e) => {
-            setPost({ ...post, postBody: e.target.value });
-          }}
-        />
-        <MyButton
-          // disabled={true}
-          type="button"
-          name="button"
-          onClick={addNewPost}
-        >
-          отправить
-        </MyButton>
-      </form>
-
-      <PostList posts={posts} title="Список постов 1" />
+      <PostForm create={createPost} />
+      <PostList remove={removePost} posts={posts} title="Список постов 1" />
       <PostList posts={posts2} title="Список постов 2" />
     </div>
   );
