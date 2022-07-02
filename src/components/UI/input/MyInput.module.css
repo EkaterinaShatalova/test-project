@@ -1,0 +1,17 @@
+.myInput {
+  padding: 5px 15px;
+  color: teal;
+  font-size: 14px;
+  background: transparent;
+  border: 2px solid teal;
+  margin: 5px;
+}
+.myInput:hover {
+  border: 2px solid red;
+}
+
+.myInput:focus {
+  color: teal;
+  border: 2px solid darkgreen;
+  outline: none;
+}
