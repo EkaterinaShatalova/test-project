@@ -37,6 +37,8 @@ function App() {
       <input type="text" value={value} onChange={changeValue}></input>
       <Counter />
       <Counter />
+      <Counter />
+      <Counter />
       <ClassCounter />
       <PostForm create={createPost} />
       <PostList remove={removePost} posts={posts} title="Список постов 1" />
