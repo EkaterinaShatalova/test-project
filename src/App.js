@@ -17,11 +17,11 @@ function App() {
     { id: 2, postTitle: "Javascript 2", postBody: "Description" },
     { id: 3, postTitle: "Javascript 3", postBody: "Description" },
   ]);
-  const [posts2, setPosts2] = useState([
-    { id: 1, postTitle: "Python 1", postBody: "Description" },
-    { id: 2, postTitle: "Python 2", postBody: "Description" },
-    { id: 3, postTitle: "Python 3", postBody: "Description" },
-  ]);
+  // const [posts2, setPosts2] = useState([
+  //   { id: 1, postTitle: "Python 1", postBody: "Description" },
+  //   { id: 2, postTitle: "Python 2", postBody: "Description" },
+  //   { id: 3, postTitle: "Python 3", postBody: "Description" },
+  // ]);
 
   const createPost = (newPost) => {
     setPosts([...posts, newPost]);
