@@ -12,6 +12,10 @@ function App() {
     setValue(event.target.value);
   };
 
+  const changeValue1 = (event) => {
+    setValue(event.target.value);
+  };
+
   const [posts, setPosts] = useState([
     { id: 1, postTitle: "Javascript 1", postBody: "Description" },
     { id: 2, postTitle: "Javascript 2", postBody: "Description" },
@@ -27,9 +31,11 @@ function App() {
     setPosts([...posts, newPost]);
   };
 
+
   const removePost = (post) => {
     setPosts(posts.filter((p) => p.id !== post.id));
   };
+
 
   return (
     <div className="App">
@@ -43,6 +49,7 @@ function App() {
       <PostForm create={createPost} />
       <PostList remove={removePost} posts={posts} title="Список постов 1" />
       <PostList posts={posts2} title="Список постов 2" />
+
     </div>
   );
 }
